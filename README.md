@@ -40,11 +40,11 @@ sudo ./splunk start
 Step 3: Access Splunk Web Interface
 Once Splunk is running, open a web browser and navigate to:
 ```bash
-http://10.0.0.130:8000
+http://10.0.0.132:8000
 ```
 
 📸 Screenshots
-![Splunk](screenshots/Splunk Webdashboard.png) 
+![Splunk Dashboard](./screenshots/Splunk%20Web%20Dashboard.png)
 
 🎯 Key Learnings
 Hands-on experience with Splunk SIEM for security monitoring.
