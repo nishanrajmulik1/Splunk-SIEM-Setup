@@ -64,7 +64,7 @@ Splunk-SIEM-Setup/
 - Writing detection rules and dashboards in Splunk SPL
 - Mapping alerts to the MITRE ATT&CK framework
 
-📸 Screenshots
+## 📸 Screenshots
 ![Splunk Dashboard](./screenshots/Splunk%20Web%20Dashboard.png)
 
 
