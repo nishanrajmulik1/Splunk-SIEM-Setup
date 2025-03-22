@@ -1,52 +1,70 @@
-# Splunk SIEM Setup on Ubuntu 🚀
+# 📊 Splunk SIEM Setup
 
 ## 📌 Project Overview
-This project demonstrates the installation and setup of **Splunk Enterprise** on an **Ubuntu 22.04** machine for **Security Information and Event Management (SIEM)**, log monitoring, and incident detection.
 
-## 🛠 Technology Stack
-- **Operating System:** Ubuntu 22.04 (Server/Desktop)
-- **SIEM Tool:** Splunk Enterprise (Free Version)
-- **Command Line Interface:** Linux Terminal
+This project documents the step-by-step setup of a **Splunk-based Security Information and Event Management (SIEM)** lab environment to monitor and analyze logs from Windows endpoints.
+
+The goal is to simulate real-world attack scenarios, forward logs to Splunk, and create meaningful detections using built-in apps and custom searches. This project demonstrates key blue team skills like log collection, correlation, alert creation, and MITRE ATT&CK mapping.
 
 ---
 
-## 📥 Installation Steps
+## 🛠️ Tools & Technologies Used
 
-### **Step 1: Download Splunk**
-Open a terminal and download Splunk using `wget`:
+- 🧠 **Splunk Enterprise** (Free Trial)
+- 💻 **Windows 10 & Server 2019** (Endpoint log sources)
+- 📦 **Universal Forwarder** (for log forwarding)
+- 🔍 **Sysmon** (for enriched Windows event logging)
+- 🧰 **MITRE ATT&CK**
+- 🖥️ **Virtualization**: VMware Workstation Pro / Proxmox
+
+---
+
+## 🏗️ Lab Setup Overview
+
+| Component | Description |
+|----------|-------------|
+| Splunk Server | Installed on Ubuntu, acts as SIEM & analysis engine |
+| Windows 10 / 2019 | Log source machines (target systems) |
+| Sysmon + UF | Installed on endpoints to generate & forward logs |
+| Attack Simulation | Simulated brute force, PowerShell, and malware behavior |
+| Detection | Correlated logs with MITRE techniques and created alerts |
+
+---
+
+## 🗂️ Project Structure
 
 ```bash
-wget -O splunk-ubuntu.deb https://download.splunk.com/products/splunk/releases/latest/linux/splunk-latest-linux-2.0-amd64.deb
+Splunk-SIEM-Setup/
+├── documentation/
+│   └── Splunk-Install-Steps.pdf
+│   └── Universal-Forwarder-Setup.md
+├── dashboards/
+│   └── windows-attack-detection.xml
+├── searches/
+│   └── powershell-abuse-search.spl
+│   └── rdp-brute-force-detection.spl
+├── screenshots/
+│   └── splunk-dashboard.png
+└── README.md
 ```
-Once downloaded, install Splunk:
-```bash
-sudo dpkg -i splunk-ubuntu.deb
-```
+## 🔍 Use Cases & Example Detections
 
-Step 2: Enable Splunk as a Service
-Move to the Splunk installation directory:
-```bash
-cd /opt/splunk/bin
-```
-Accept the license agreement and enable Splunk at boot:
-```bash
-sudo ./splunk enable boot-start --accept-license
-```
-Start Splunk:
-```bash
-sudo ./splunk start
-```
+| Detection Use Case | Description | MITRE Technique |
+|--------------------|-------------|------------------|
+| RDP Brute Force | Multiple failed login attempts | T1110.001 |
+| PowerShell Abuse | Detect encoded or suspicious scripts | T1059.001 |
+| Unexpected Services | New services created by attackers | T1543.003 |
 
-Step 3: Access Splunk Web Interface
-Once Splunk is running, open a web browser and navigate to:
-```bash
-http://10.0.0.132:8000
-```
+---
+
+## ✅ What I Learned
+
+- Installing and configuring Splunk on Linux (Ubuntu)
+- Collecting and visualizing logs from Windows endpoints
+- Writing detection rules and dashboards in Splunk SPL
+- Mapping alerts to the MITRE ATT&CK framework
 
 📸 Screenshots
 ![Splunk Dashboard](./screenshots/Splunk%20Web%20Dashboard.png)
 
-🎯 Key Learnings
-Hands-on experience with Splunk SIEM for security monitoring.
-Understanding log collection and analysis in cybersecurity.
-Configuring and managing Splunk services on Linux.
+
